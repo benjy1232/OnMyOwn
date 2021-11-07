@@ -22,6 +22,13 @@ void print(int ** matrix, int rows, int cols){
 	}
 }
 
+void clear(int **matrix, int rows, int cols){
+	for(int i = 0; i<rows; i++){
+		free((void *)matrix[i]);
+	}
+	free((void*)matrix);
+}
+
 int main(void){
 	int n;
 	printf("Please enter number of rows/columns for matrix: ");
@@ -32,4 +39,5 @@ int main(void){
 	}
 	identity(matrix, n);
 	print(matrix, n,n);
+	clear(matrix, n,n);
 }
